@@ -1,8 +1,8 @@
 #include <iostream>
 #include <cstdlib> 
 int main(int argc, char** argv) {
-    int w[3];              //omega1           omega2
-	int data[4][4]={{0,0,1,1},{0,1,1,1},{1,0,1,-1},{1,1,1,-1}};	
+    int w[3];              //omega1           omega2   
+	int data[4][4]={{3,5,1,1},{6,4,1,1},{1,0,1,-1},{1,1,1,-1}};	
 	int c=1;  //–Ω秸俱秖(厩策硉瞯) 
 	for(int i=0;i<3;i++){
         w[i]= 0;  // ﹍て舦 
@@ -55,7 +55,7 @@ int main(int argc, char** argv) {
 	for(int k=0 ;k<3;k++){
 		printf("w[%d] = %d\n",k,w[k]);
 	}
-	printf("\n癡絤Ω计 = %d",iterTimes);
+	printf("\n癡絤近计 = %d",iterTimes);
 	return 0;
 }
 
