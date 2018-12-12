@@ -19,7 +19,7 @@ void readData(double ** data, int r, int c){
 		}
 	}
 }
-void printMatrix(double**data,int row,int col){
+void PLA(double**data,int row,int col){
 	for(int i=0;i<row;i++){ //第i橫列 
 		for(int j=0;j<col;j++){ //第j直行 
 			cout<<data[i][j]<<" ";
@@ -92,6 +92,6 @@ int main(int argc, char** argv){
 	for(int i=0;i<data_col;i++)
 		data[i]=new double[data_col]; //4參數 
 	readData(data,data_row,data_col);
-	printMatrix(data,data_row,data_col);
+	PLA(data,data_row,data_col);
   	return 0;
 }
