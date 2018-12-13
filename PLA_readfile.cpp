@@ -1,12 +1,26 @@
 #include <iostream>
 #include <fstream> // file stream
 #include <sstream>// string stream 
-using namespace std;
-void readData(double ** data, int r, int c){
-	ifstream file("data2.csv");  //以默認輸入方式打開文件 
+using namespace std; 
+void getDataSize(int size[]){
+	ifstream file("data1.csv");  //以默認輸入方式打開文件 
+	string line;
+	getline(file,line);  //從輸入流讀入字符存到string變量，直到沒有讀入字符、返回false 
+	stringstream count(line);  //將一個字符串變量的值傳遞給istringstream對象 count
+	for(int i=0;i<2;i++){
+		string val;
+		getline(count,val,',');  //以","當換行符號 
+		stringstream convert(val); //轉字串成數字  
+		convert>> size[i];  //輸入到矩陣 		
+	}		
+}
+void readData(int ** data, int r, int c){
+	ifstream file("data1.csv");  //以默認輸入方式打開文件 
+	string line1;
+	getline(file,line1);
 	for(int row=0;row<r;++row){
 		string line;
-		if(!getline(file,line))  //從輸入流讀入一行到string變量，直到沒有讀入字符、返回false 
+		if(!getline(file,line))  //從輸入流讀入一行到string變量，直到沒有0讀入字符、返回false 
 			break;
 		stringstream iss(line);  //將一個字符串變量的值傳遞給istringstream對象 
 		if(!iss.good())  //如果沒錯就回傳True 
@@ -15,11 +29,11 @@ void readData(double ** data, int r, int c){
 			string val;
 			getline(iss,val,',');  //字串分割 
 			stringstream convert(val); //轉字串成數字  
-			convert>>data[row][col];  //輸入到 
+			convert>>data[row][col];  //輸入到矩陣 
 		}
 	}
 }
-void PLA(double**data,int row,int col){
+void PLA(int**data,int row,int col){
 	for(int i=0;i<row;i++){ //第i橫列 
 		for(int j=0;j<col;j++){ //第j直行 
 			cout<<data[i][j]<<" ";
@@ -82,16 +96,19 @@ void PLA(double**data,int row,int col){
 	}
 	printf("\n訓練輪數 = %d",iterTimes);	
 }
-//void classification_data(double**data,int row,int col)
-
 int main(int argc, char** argv){ 
-	int data_row=4;
-	int data_col=4; 
-	double **data; // 
-	data=new double *[100]; // 100資料 
+	int size[]={}; //檔案size 
+	int data_row;  //資料筆數 
+	int data_col;  //資料參數 
+	getDataSize(size); //取得資料內容大小 
+	data_row=size[0];
+	data_col=size[1];
+	int **data; //宣告矩陣 
+	data=new int *[data_row];
 	for(int i=0;i<data_col;i++)
-		data[i]=new double[data_col]; //4參數 
-	readData(data,data_row,data_col);
-	PLA(data,data_row,data_col);
+		data[i]=new int[data_col]; 
+	printf("data_row=%d,data_col=%d\n",data_row,data_col);
+	readData(data,data_row,data_col); //讀取資料 
+	PLA(data,data_row,data_col); //PLA算法 
   	return 0;
 }
