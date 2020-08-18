@@ -5,7 +5,7 @@ This is a Perceptron Learning Algorithm project written in C++.
     int data[4][4] = {{3, 5, 1, 1}, {6, 4, 1, 1}, {1, 0, 1, -1}, {1, 1, 1, -1}};
 [公式](https://github.com/leodflag/Python_PLA)
 ## 結果
-![image](https://github.com/leodflag/CPP_PLA/blob/master/data_result.png)
+![image](https://github.com/leodflag/CPP_PLA/blob/master/img/data_result.png)
 
 ## 目標(PLA_readfile.cpp)
     讀取csv檔內的資料，用PLA分成2類
@@ -29,10 +29,10 @@ This is a Perceptron Learning Algorithm project written in C++.
     
 ## 結果
 ### data1
-![image](https://github.com/leodflag/CPP_PLA/blob/master/data1_result.png)
+![image](https://github.com/leodflag/CPP_PLA/blob/master/img/data1_result.png)
 ### data2
-![image](https://github.com/leodflag/CPP_PLA/blob/master/data2_result.png)
+![image](https://github.com/leodflag/CPP_PLA/blob/master/img/data2_result.png)
 
 ## PLA講義
-![image](https://github.com/leodflag/CPP_PLA/blob/master/PLA1.jpg)
-![image](https://github.com/leodflag/CPP_PLA/blob/master/PLA2.jpg)
+![image](https://github.com/leodflag/CPP_PLA/blob/master/img/PLA1.jpg)
+![image](https://github.com/leodflag/CPP_PLA/blob/master/img/PLA2.jpg)
